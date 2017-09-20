@@ -1,4 +1,4 @@
 #Encode
-openssl enc -aes-256-cbc -salt -in joinerkeys.jks -out joinerkeys.jks.enc
+openssl enc -aes-256-cbc -salt -in keys.jks -out keys.jks.enc
 #Decode
-openssl enc -aes-256-cbc -d -in joinerkeys.jks.enc -out joinerkeys.jks
+openssl enc -aes-256-cbc -d -in keys.jks.enc -out keys.jks
