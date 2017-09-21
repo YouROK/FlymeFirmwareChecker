@@ -5,6 +5,9 @@
         <item>7.0.1</item>
         <item>7.0.0</item>
         <item>6.0.1</item>
+        <item>6.0</item>
+        <item>5.1.1</item>
+        <item>5.1</item>
     </string-array>
 
     <string-array name="devices_id">
