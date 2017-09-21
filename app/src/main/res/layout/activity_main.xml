@@ -132,6 +132,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:ems="10"
+                        android:inputType="number|numberSigned"
                         android:text="" />
                 </LinearLayout>
 
@@ -189,6 +190,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
+                android:inputType="textWebEditText"
                 android:text="https://u.meizu.com" />
 
             <TextView
@@ -219,21 +221,29 @@
 
             <Button
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:onClick="onBtnRead"
                 android:text="Read params" />
 
             <Button
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:onClick="onBtnCheck"
-                android:text="Check firmware" />
+                android:text="Check" />
+
+            <Button
+                android:id="@+id/buttonFind"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="onBtnFind"
+                android:text="Find" />
 
             <Button
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:onClick="onBtnView"
                 android:text="View firmware" />

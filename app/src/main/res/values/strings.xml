@@ -1,3 +1,89 @@
 <resources>
     <string name="app_name">FlymeFirmwareChecker</string>
+
+    <string-array name="android_versions">
+        <item>7.0.1</item>
+        <item>7.0.0</item>
+        <item>6.0.1</item>
+    </string-array>
+
+    <string-array name="devices_id">
+        <item>M7410-Meizu E2 (A)</item>
+        <item>57А0-Meizu M1 Metal (A)</item>
+        <item>M4630-Meizu M1 Note (A)</item>
+        <item>M4635-Meizu M1 Note (H)</item>
+        <item>M68A0-Meizu M1E (M3E) (A)</item>
+        <item>M68A5-Meizu M1E (M3E) (H)</item>
+        <item>M5780-Meizu M2 (A)</item>
+        <item>M5785-Meizu M2 (H)</item>
+        <item>M5710-Meizu M2 Note (A)</item>
+        <item>M5715-Meizu M2 Note (H)</item>
+        <item>M6880-Meizu M3 (A)</item>
+        <item>M68B0-Meizu M3 Max (A)</item>
+        <item>M68B5-Meizu M3 Max (H)</item>
+        <item>M6810-Meizu M3 Note (A)</item>
+        <item>M6815-Meizu M3 Note (H)</item>
+        <item>L6815-Meizu M3 Note (L)</item>
+        <item>M6830-Meizu M3s (A)</item>
+        <item>M6835-Meizu M3s (H)</item>
+        <item>M6820-Meizu M3x (A)</item>
+        <item>M6110-Meizu M5 (A)</item>
+        <item>M6115-Meizu M5 (H)</item>
+        <item>M6210-Meizu M5 Note (A)</item>
+        <item>M6215-Meizu M5 Note (H)</item>
+        <item>M7100-Meizu M5c (A)</item>
+        <item>M6120-Meizu M5s (A)</item>
+        <item>M6125-Meizu M5s (H)</item>
+        <item>M576-Meizu PRO5</item>
+        <item>M5700-Meizu PRO 6 (A)</item>
+        <item>M5705-Meizu PRO 6 (H)</item>
+        <item>mx4-Meizu MX4</item>
+        <item>M462-Meizu MX4 Pro</item>
+        <item>mx5-Meizu MX5</item>
+        <item>M6850-Meizu MX6 (A)</item>
+        <item>M6855-Meizu MX6 (H)</item>
+        <item>PRO6Plus-Meizu PRO 6 Plus</item>
+        <item>U68C0-Meizu U10 (A)</item>
+        <item>U68C5-Meizu U10 (H)</item>
+        <item>M68D0-Meizu U20 (A)</item>
+        <item>M68D5-Meizu U20 (H)</item>
+    </string-array>
+
+    <string-array name="firmware_type">
+        <item>daily</item>
+        <item>beta</item>
+        <item>stable</item>
+
+        <item>intldaily</item>
+        <item>intlbeta</item>
+        <item>intlstable</item>
+
+        <item>aliyunbeta</item>
+        <item>aliyundaily</item>
+        <item>aliyunstable</item>
+
+        <item>indiabeta</item>
+        <item>indiadaily</item>
+        <item>indiastable</item>
+
+        <item>telaliyunbeta</item>
+        <item>telaliyundaily</item>
+        <item>telaliyunstable</item>
+
+        <item>telbeta</item>
+        <item>teldaily</item>
+        <item>telstable</item>
+
+        <item>ctstable</item>
+        <item>czstable</item>
+        <item>demoaliyunstable</item>
+        <item>demostable</item>
+        <item>g3aliyunstable</item>
+        <item>g3stable</item>
+        <item>publicaliyunstable</item>
+        <item>sp</item>
+        <item>tnstable</item>
+        <item>woaliyunstable</item>
+        <item>wostable</item>
+    </string-array>
 </resources>
