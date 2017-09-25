@@ -27,7 +27,10 @@ public class UpdateViewActivity extends AppCompatActivity {
                     "<br>" + jnew.getString("fileSize") +
                     "<br>" + jnew.getString("releaseDate") + "</p>" +
                     "<h4>" + jnew.getString("updateUrl") + "</h4>";
-            releaseNotes += "<br>" + jnew.getString("releaseNote");
+            if (jnew.has("releaseNoteEng"))
+                releaseNotes += "<br>" + jnew.getString("releaseNoteEng");
+            else
+                releaseNotes += "<br>" + jnew.getString("releaseNote");
             ((TextView) findViewById(R.id.textViewUrl)).setText(jnew.getString("updateUrl"));
             ((WebView) findViewById(R.id.webView)).loadDataWithBaseURL(null, releaseNotes, "text/html", "utf-8", null);
 
@@ -35,7 +38,5 @@ public class UpdateViewActivity extends AppCompatActivity {
             e.printStackTrace();
             finish();
         }
-
-
     }
 }

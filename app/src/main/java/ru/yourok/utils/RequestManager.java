@@ -2,7 +2,11 @@ package ru.yourok.utils;
 
 import android.util.Log;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
+
+import java.net.URLDecoder;
+import java.net.URLEncoder;
 
 /**
  * Created by yourok on 20.09.17.
@@ -47,13 +51,46 @@ public class RequestManager {
         return update;
     }
 
+    public void translate(final Runnable onEndRequest) {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+
+                String trans = "";
+                String orig;
+                try {
+                    if (update != null && Utils.has(update, "reply", "value", "new", "releaseNote")) {
+                        orig = update.getJSONObject("reply").getJSONObject("value").getJSONObject("new").getString("releaseNote");
+                        orig = URLEncoder.encode(orig, "utf-8");
+                        Request req = new Request("http://translate.baidu.com/v2transapi", "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36");
+                        req.sendRequest("from=zh&to=en&query=" + orig + "&transtype=translang");
+                        String resp = req.recvResponce();
+                        JSONObject json = new JSONObject(resp);
+                        Log.i("FlymeFirmwareChecker", json.toString(1));
+                        if (Utils.has(json, "trans_result", "data")) {
+                            JSONArray arr = json.getJSONObject("trans_result").getJSONArray("data");
+                            for (int i = 0; i < arr.length(); i++)
+                                trans += arr.getJSONObject(i).getString("dst");
+                            trans = URLDecoder.decode(trans, "utf-8");
+                            update.getJSONObject("reply").getJSONObject("value").getJSONObject("new").put("releaseNoteEng", trans);
+                        }
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                if (onEndRequest != null)
+                    onEndRequest.run();
+            }
+        }).start();
+    }
+
     public void check(final Runnable onEndRequest) {
         thread = new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
                     stati = ST_REQUEST;
-                    Request conn = new Request(host);
+                    Request conn = new Request(host + "/sysupgrade/check");
                     String sparams = params.toString();
                     String sign = SystemParams.getSign(sparams);
                     String body = "unitType=0&sys=" + sparams + "&sign=" + sign;
@@ -72,6 +109,7 @@ public class RequestManager {
                         stat = "No firmware";
                         stati = ST_NOTFOUND;
                     } else {
+                        translate(null);
                         stat = "";
                         stati = ST_FOUND;
                     }
@@ -80,7 +118,8 @@ public class RequestManager {
                     stati = ST_ERROR;
                     stat = e.getMessage();
                 }
-                onEndRequest.run();
+                if (onEndRequest != null)
+                    onEndRequest.run();
             }
         });
         thread.start();
@@ -95,7 +134,7 @@ public class RequestManager {
                     stop = false;
                     while (!stop) {
                         stati = ST_REQUEST;
-                        Request conn = new Request(host);
+                        Request conn = new Request(host + "/sysupgrade/check");
 
                         long ts = getTSFromMask();
                         if (ts == -1) {
@@ -126,6 +165,7 @@ public class RequestManager {
                         }
                         update = json;
                         if (Utils.has(update, "reply", "value", "new")) {
+                            translate(null);
                             stat = "";
                             stati = ST_FOUND;
                             break;

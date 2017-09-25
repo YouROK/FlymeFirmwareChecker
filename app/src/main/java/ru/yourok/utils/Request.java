@@ -15,9 +15,18 @@ public class Request {
     private HttpURLConnection conn;
 
     public Request(String host) throws Exception {
-        URL url = new URL(host + "/sysupgrade/check");
+        URL url = new URL(host);
         conn = (HttpURLConnection) url.openConnection();
         conn.setRequestMethod("POST");
+        conn.setDoOutput(true);
+        conn.setDoInput(true);
+    }
+
+    public Request(String host, String useragent) throws Exception {
+        URL url = new URL(host);
+        conn = (HttpURLConnection) url.openConnection();
+        conn.setRequestMethod("POST");
+        conn.setRequestProperty("User-Agent", useragent);
         conn.setDoOutput(true);
         conn.setDoInput(true);
     }
