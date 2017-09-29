@@ -206,7 +206,6 @@
     </ScrollView>
 
     <LinearLayout
-        android:id="@+id/footer"
         style="@android:style/DeviceDefault.ButtonBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -224,7 +223,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:onClick="onBtnRead"
-                android:text="Read params" />
+                android:text="Read" />
 
             <Button
                 android:layout_width="wrap_content"
@@ -246,8 +245,14 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:onClick="onBtnView"
-                android:text="View firmware" />
-        </LinearLayout>
+                android:text="View" />
 
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="onBtnEditor"
+                android:text="..." />
+        </LinearLayout>
     </LinearLayout>
 </LinearLayout>

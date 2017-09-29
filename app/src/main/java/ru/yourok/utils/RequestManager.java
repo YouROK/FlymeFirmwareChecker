@@ -5,7 +5,6 @@ import android.util.Log;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.net.URLDecoder;
 import java.net.URLEncoder;
 
 /**
@@ -52,7 +51,7 @@ public class RequestManager {
     }
 
     public void translate(final Runnable onEndRequest) {
-        new Thread(new Runnable() {
+        Thread th = new Thread(new Runnable() {
             @Override
             public void run() {
 
@@ -61,7 +60,11 @@ public class RequestManager {
                 try {
                     if (update != null && Utils.has(update, "reply", "value", "new", "releaseNote")) {
                         orig = update.getJSONObject("reply").getJSONObject("value").getJSONObject("new").getString("releaseNote");
+                        orig = orig.replaceAll("<p>", "\n").replaceAll("</p>", "\n");
+                        orig = orig.replaceAll("<br>", "\n");
+                        orig = orig.replaceAll("<.+?>", "");
                         orig = URLEncoder.encode(orig, "utf-8");
+
                         Request req = new Request("http://translate.baidu.com/v2transapi", "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36");
                         req.sendRequest("from=zh&to=en&query=" + orig + "&transtype=translang");
                         String resp = req.recvResponce();
@@ -70,8 +73,7 @@ public class RequestManager {
                         if (Utils.has(json, "trans_result", "data")) {
                             JSONArray arr = json.getJSONObject("trans_result").getJSONArray("data");
                             for (int i = 0; i < arr.length(); i++)
-                                trans += arr.getJSONObject(i).getString("dst");
-                            trans = URLDecoder.decode(trans, "utf-8");
+                                trans += arr.getJSONObject(i).getString("dst") + "<br><br>";
                             update.getJSONObject("reply").getJSONObject("value").getJSONObject("new").put("releaseNoteEng", trans);
                         }
                     }
@@ -81,7 +83,13 @@ public class RequestManager {
                 if (onEndRequest != null)
                     onEndRequest.run();
             }
-        }).start();
+        });
+        th.start();
+//        try {
+//            th.join();
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
     }
 
     public void check(final Runnable onEndRequest) {

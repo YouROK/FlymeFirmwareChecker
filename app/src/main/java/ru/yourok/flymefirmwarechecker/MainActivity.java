@@ -133,6 +133,8 @@ public class MainActivity extends AppCompatActivity {
             params = p.getParams();
             if (!p.getUpdate().isEmpty())
                 update = new JSONObject(p.getUpdate());
+            if (params == null || (params.getString(SN).isEmpty() && params.getString(IMEI).isEmpty()))
+                params = new SystemParams(this).getSystemParams();
             writeToUIParams(params);
         } catch (Exception e) {
             e.printStackTrace();
@@ -333,6 +335,11 @@ public class MainActivity extends AppCompatActivity {
         }
         Intent intent = new Intent(this, UpdateViewActivity.class);
         intent.putExtra("Update", update.toString());
+        startActivity(intent);
+    }
+
+    public void onBtnEditor(View view) {
+        Intent intent = new Intent(this, EditorActivity.class);
         startActivity(intent);
     }
 }

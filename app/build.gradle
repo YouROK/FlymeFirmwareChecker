@@ -7,9 +7,8 @@ android {
         applicationId "ru.yourok.flymefirmwarechecker"
         minSdkVersion 22
         targetSdkVersion 25
-        versionCode 102
-        versionName "1.02"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        versionCode 103
+        versionName "1.03"
     }
     buildTypes {
         release {
@@ -37,4 +36,6 @@ dependencies {
     provided files(android.sdkDirectory.path + "/platforms/" + android.compileSdkVersion + "/data/layoutlib.jar")
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
+
+    compile files('libs/RootTools.jar')
 }
