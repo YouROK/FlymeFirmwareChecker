@@ -1,8 +1,12 @@
 package ru.yourok.flymefirmwarechecker
 
+import android.Manifest
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
+import android.support.v4.app.ActivityCompat
+import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.*
@@ -12,7 +16,14 @@ import ru.yourok.flymefirmwarechecker.dialogs.ItemsDialog
 import ru.yourok.utils.Params
 import ru.yourok.utils.RequestManager
 import ru.yourok.utils.SystemParams
-import ru.yourok.utils.SystemParams.*
+import ru.yourok.utils.SystemParams.Companion.DEVICE_ID
+import ru.yourok.utils.SystemParams.Companion.DEVICE_TYPE
+import ru.yourok.utils.SystemParams.Companion.FIRMWARE
+import ru.yourok.utils.SystemParams.Companion.IMEI
+import ru.yourok.utils.SystemParams.Companion.ROOT
+import ru.yourok.utils.SystemParams.Companion.SN
+import ru.yourok.utils.SystemParams.Companion.SYSVER
+import ru.yourok.utils.SystemParams.Companion.VERSION
 import ru.yourok.utils.Utils
 
 class MainActivity : AppCompatActivity() {
@@ -24,6 +35,11 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
+            if (!ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.READ_PHONE_STATE))
+                ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.READ_PHONE_STATE), 1234)
+        }
 
         (findViewById(R.id.checkBoxInternational) as CheckBox).setOnClickListener { setEditText(R.id.editTextHost, SystemParams.getHost((findViewById(R.id.checkBoxInternational) as CheckBox).isChecked)) }
 
@@ -125,6 +141,12 @@ class MainActivity : AppCompatActivity() {
         }
 
         super.onStop()
+    }
+
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
+        if (requestCode == 1234 && grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            onStart()
+        }
     }
 
     private fun getEditText(id: Int): String {

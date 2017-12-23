@@ -20,26 +20,26 @@ public class Params {
 
     public JSONObject getParams() throws Exception {
         JSONObject basicParams = new JSONObject();
-        basicParams.put(SystemParams.DEVICE_TYPE, get(SystemParams.DEVICE_TYPE));
-        basicParams.put(SystemParams.FIRMWARE, get(SystemParams.FIRMWARE));
-        basicParams.put(SystemParams.SYSVER, get(SystemParams.SYSVER));
-        basicParams.put(SystemParams.VERSION, get(SystemParams.VERSION));
-        basicParams.put(SystemParams.ROOT, get(SystemParams.ROOT));
-        basicParams.put(SystemParams.DEVICE_ID, get(SystemParams.DEVICE_ID));
-        basicParams.put(SystemParams.SN, get(SystemParams.SN));
-        basicParams.put(SystemParams.IMEI, get(SystemParams.IMEI));
+        basicParams.put(SystemParams.Companion.getDEVICE_TYPE(), get(SystemParams.Companion.getDEVICE_TYPE()));
+        basicParams.put(SystemParams.Companion.getFIRMWARE(), get(SystemParams.Companion.getFIRMWARE()));
+        basicParams.put(SystemParams.Companion.getSYSVER(), get(SystemParams.Companion.getSYSVER()));
+        basicParams.put(SystemParams.Companion.getVERSION(), get(SystemParams.Companion.getVERSION()));
+        basicParams.put(SystemParams.Companion.getROOT(), get(SystemParams.Companion.getROOT()));
+        basicParams.put(SystemParams.Companion.getDEVICE_ID(), get(SystemParams.Companion.getDEVICE_ID()));
+        basicParams.put(SystemParams.Companion.getSN(), get(SystemParams.Companion.getSN()));
+        basicParams.put(SystemParams.Companion.getIMEI(), get(SystemParams.Companion.getIMEI()));
         return basicParams;
     }
 
     public void setParams(JSONObject params) throws Exception {
-        set(SystemParams.DEVICE_TYPE, params.getString(SystemParams.DEVICE_TYPE));
-        set(SystemParams.FIRMWARE, params.getString(SystemParams.FIRMWARE));
-        set(SystemParams.SYSVER, params.getString(SystemParams.SYSVER));
-        set(SystemParams.VERSION, params.getString(SystemParams.VERSION));
-        set(SystemParams.ROOT, params.getString(SystemParams.ROOT));
-        set(SystemParams.DEVICE_ID, params.getString(SystemParams.DEVICE_ID));
-        set(SystemParams.SN, params.getString(SystemParams.SN));
-        set(SystemParams.IMEI, params.getString(SystemParams.IMEI));
+        set(SystemParams.Companion.getDEVICE_TYPE(), params.getString(SystemParams.Companion.getDEVICE_TYPE()));
+        set(SystemParams.Companion.getFIRMWARE(), params.getString(SystemParams.Companion.getFIRMWARE()));
+        set(SystemParams.Companion.getSYSVER(), params.getString(SystemParams.Companion.getSYSVER()));
+        set(SystemParams.Companion.getVERSION(), params.getString(SystemParams.Companion.getVERSION()));
+        set(SystemParams.Companion.getROOT(), params.getString(SystemParams.Companion.getROOT()));
+        set(SystemParams.Companion.getDEVICE_ID(), params.getString(SystemParams.Companion.getDEVICE_ID()));
+        set(SystemParams.Companion.getSN(), params.getString(SystemParams.Companion.getSN()));
+        set(SystemParams.Companion.getIMEI(), params.getString(SystemParams.Companion.getIMEI()));
     }
 
     public String getUpdate() {

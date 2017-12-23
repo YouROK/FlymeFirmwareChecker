@@ -5,12 +5,12 @@ android {
     compileSdkVersion 26
     buildToolsVersion "26.0.2"
     defaultConfig {
+        multiDexEnabled true
         applicationId "ru.yourok.flymefirmwarechecker"
         minSdkVersion 22
         targetSdkVersion 26
         versionCode 104
         versionName "1.04"
-        multiDexEnabled true
     }
     buildTypes {
         release {
@@ -29,8 +29,6 @@ dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.android.support:appcompat-v7:26.1.0'
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    compile project(':RootTools')
-    compile project(':RootShell')
 }
 repositories {
     mavenCentral()
