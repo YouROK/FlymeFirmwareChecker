@@ -2,7 +2,6 @@ package ru.yourok.utils;
 
 import android.content.Context;
 import android.os.Build;
-import android.os.SystemProperties;
 import android.telephony.TelephonyManager;
 
 import org.json.JSONObject;
@@ -47,15 +46,15 @@ public class SystemParams {
     }
 
     public String getDeviceType() {
-        return SystemProperties.get("ro.meizu.product.model", "");
+        return SystemPropertiesProxy.get(context, "ro.meizu.product.model", "");
     }
 
     public String getFirmware() {
-        return SystemProperties.get("ro.build.version.release", "");
+        return SystemPropertiesProxy.get(context, "ro.build.version.release", "");
     }
 
     public String getSysver() {
-        return SystemProperties.get("ro.build.mask.id", "");
+        return SystemPropertiesProxy.get(context, "ro.build.mask.id", "");
     }
 
     public String isRooted() {

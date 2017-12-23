@@ -6,6 +6,17 @@
     android:orientation="vertical"
     tools:context="ru.yourok.flymefirmwarechecker.UpdateViewActivity">
 
+    <Spinner
+        android:id="@+id/spinnerTranslate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <ProgressBar
+        android:visibility="gone"
+        android:id="@+id/progress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
     <WebView
         android:id="@+id/webView"
         android:layout_width="match_parent"

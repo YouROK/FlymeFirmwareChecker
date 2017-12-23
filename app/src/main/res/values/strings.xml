@@ -1,7 +1,15 @@
 <resources>
     <string name="app_name">FlymeFirmwareChecker</string>
 
+    <string-array name="translates">
+        <item>Orig</item>
+        <item>En</item>
+        <item>Ru</item>
+    </string-array>
+
     <string-array name="android_versions">
+        <item>7.1.4</item>
+        <item>7.1.2</item>
         <item>7.0.1</item>
         <item>7.0.0</item>
         <item>6.0.1</item>
@@ -50,6 +58,15 @@
         <item>U68C5-Meizu U10 (H)</item>
         <item>M68D0-Meizu U20 (A)</item>
         <item>M68D5-Meizu U20 (H)</item>
+
+        <item>M7110-Meizu M6 (A)</item>
+        <item>M7115-Meizu M6 (H)</item>
+        <item>M7210-Meizu M6 Note (A)</item>
+        <item>M7215-Meizu M6 Note (H)</item>
+
+        <item>M7910-Meizu Pro 7S (p25)</item>
+        <item>M7920-Meizu Pro 7H (x30)</item>
+        <item>M7930-Meizu Pro 7 Plus</item>
     </string-array>
 
     <string-array name="firmware_type">

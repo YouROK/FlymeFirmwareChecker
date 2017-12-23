@@ -61,7 +61,7 @@ public class EditorActivity extends AppCompatActivity {
 
         String txt = "";
         try {
-            txt = Utils.readFile(script);
+            txt = Utils.INSTANCE.readFile(script);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -76,7 +76,7 @@ public class EditorActivity extends AppCompatActivity {
         String txt = ((EditText) findViewById(R.id.editTextScript)).getText().toString();
         if (txt.trim().isEmpty())
             txt = RemoveScript.Script;
-        Utils.writeFile(getCacheFile(REMOVE_SCRIPT_FNAME), txt);
+        Utils.INSTANCE.writeFile(getCacheFile(REMOVE_SCRIPT_FNAME), txt);
     }
 
     @Override

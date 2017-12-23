@@ -21,6 +21,8 @@ public class RemoveScript {
                     "rm -rf \"/system/priv-app/Browser\"\n" +
                     "rm -rf \"/system/priv-app/YellowPage\"\n" +
                     "rm -rf \"/system/priv-app/GameSDKService\"\n" +
+                    "rm -rf \"/system/priv-app/Feedback\"\n" +
+                    "rm -rf \"/system/priv-app/MeizuPay\"\n" +
                     "\n" +
                     "rm -rf \"/system/app/AppCenter\"\n" +
                     "rm -rf \"/system/app/MzCompaign\"\n" +
@@ -38,6 +40,7 @@ public class RemoveScript {
                     "rm -rf \"/system/app/AlipayNewmsp\"\n" +
                     "rm -rf \"/system/app/MzCloudService\"\n" +
                     "rm -rf \"/system/app/MzPay\"\n" +
+                    "#rm -rf \"/system/app/MzUpdate\"\n" +
                     "\n" +
                     "rm -rf \"/data/app/BaiduMap\"\n" +
                     "rm -rf \"/data/app/CTrip\"\n" +

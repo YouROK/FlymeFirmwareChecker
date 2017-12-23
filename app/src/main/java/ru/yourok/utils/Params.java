@@ -2,14 +2,9 @@ package ru.yourok.utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.os.Build;
-import android.os.SystemProperties;
 import android.preference.PreferenceManager;
-import android.telephony.TelephonyManager;
 
 import org.json.JSONObject;
-
-import java.io.File;
 
 /**
  * Created by yourok on 19.09.17.

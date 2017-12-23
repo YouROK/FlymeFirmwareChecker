@@ -1,27 +1,24 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.3"
+    compileSdkVersion 26
+    buildToolsVersion "26.0.2"
     defaultConfig {
         applicationId "ru.yourok.flymefirmwarechecker"
         minSdkVersion 22
-        targetSdkVersion 25
-        versionCode 103
-        versionName "1.03"
+        targetSdkVersion 26
+        versionCode 104
+        versionName "1.04"
+        multiDexEnabled true
     }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             applicationVariants.all { variant ->
-                variant.outputs.each { output ->
-                    project.ext { appName = 'FlymeFirmwareChecker' }
-                    def newName = output.outputFile.name
-                    newName = newName.replace("app-", "$project.ext.appName-")
-                    newName = newName.replace("-release", "-" + versionName)
-                    newName = newName.replace("-debug", "-d-" + versionName)
-                    output.outputFile = new File(output.outputFile.parent, newName)
+                variant.outputs.all {
+                    outputFileName = "FlymeFirmwareChecker-${variant.versionName}.apk"
                 }
             }
         }
@@ -29,13 +26,12 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
-    provided files(android.sdkDirectory.path + "/platforms/" + android.compileSdkVersion + "/data/layoutlib.jar")
-    compile 'com.android.support:appcompat-v7:25.3.1'
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
-
-    compile files('libs/RootTools.jar')
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'com.android.support:appcompat-v7:26.1.0'
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    compile project(':RootTools')
+    compile project(':RootShell')
+}
+repositories {
+    mavenCentral()
 }
