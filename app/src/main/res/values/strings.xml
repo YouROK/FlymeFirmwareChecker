@@ -67,6 +67,9 @@
         <item>M7910-Meizu Pro 7S (p25)</item>
         <item>M7920-Meizu Pro 7H (x30)</item>
         <item>M7930-Meizu Pro 7 Plus</item>
+
+        <item>M7120-Meizu M6s (A)</item>
+        <item>M7125-Meizu M6s (H)</item>
     </string-array>
 
     <string-array name="firmware_type">

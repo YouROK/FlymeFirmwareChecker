@@ -13,7 +13,7 @@ import ru.yourok.utils.Utils
 class UpdateViewActivity : AppCompatActivity() {
 
     var update: JSONObject? = null
-    var translate = "orig"
+    var lang = "orig"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,13 +35,13 @@ class UpdateViewActivity : AppCompatActivity() {
             }
 
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, position: Int, p3: Long) {
-                translate = spinner.selectedItem.toString()
-                if (translate != "Orig") {
-                    if (Utils.has(update, "reply", "value", "new", "releaseNote$translate"))
+                lang = spinner.selectedItem.toString()
+                if (lang != "Orig") {
+                    if (Utils.has(update, "reply", "value", "new", "releaseNote$lang"))
                         update()
                     else {
                         showProgress(true)
-                        Utils.translate(translate, update!!, Runnable {
+                        Utils.translate(lang, update!!, Runnable {
                             update()
                             showProgress(false)
                             Params(this@UpdateViewActivity).update = update.toString()
@@ -51,7 +51,17 @@ class UpdateViewActivity : AppCompatActivity() {
                     update()
             }
         }
+
         update()
+    }
+
+    fun translate(lang: String) {
+        showProgress(true)
+        Utils.translate(lang, update!!, Runnable {
+            update()
+            showProgress(false)
+            Params(this@UpdateViewActivity).update = update.toString()
+        })
     }
 
     fun showProgress(isShow: Boolean) {
@@ -73,8 +83,8 @@ class UpdateViewActivity : AppCompatActivity() {
                     "<br>" + jnew.getString("releaseDate") + "</p>" +
                     "<h4>" + jnew.getString("updateUrl") + "</h4>"
 
-            if (translate != "Orig" && jnew.has("releaseNote$translate"))
-                releaseNotes += "<br>" + jnew.getString("releaseNote$translate")
+            if (lang != "Orig" && jnew.has("releaseNote$lang"))
+                releaseNotes += "<br>" + jnew.getString("releaseNote$lang")
             else
                 releaseNotes += "<br>" + jnew.getString("releaseNote")
 

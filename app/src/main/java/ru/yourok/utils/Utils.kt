@@ -56,7 +56,8 @@ object Utils {
                     orig = orig.replace("<.+?>".toRegex(), "")
                     orig = URLEncoder.encode(orig, "utf-8")
 
-                    val req = Request("http://translate.baidu.com/v2transapi", "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36")
+                    val req = Request("http://lang.baidu.com/v2transapi", "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36")
+//                    val req = Request("http://fanyi.baidu.com/#zh/${trTo.toLowerCase()}/$orig", "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36")
                     req.sendRequest("from=zh&to=${trTo.toLowerCase()}&query=$orig&transtype=translang")
                     val resp = req.recvResponce()
                     val json = JSONObject(resp)

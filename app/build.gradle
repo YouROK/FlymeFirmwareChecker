@@ -9,8 +9,8 @@ android {
         applicationId "ru.yourok.flymefirmwarechecker"
         minSdkVersion 22
         targetSdkVersion 26
-        versionCode 104
-        versionName "1.04"
+        versionCode 105
+        versionName "1.05"
     }
     buildTypes {
         release {
@@ -29,7 +29,10 @@ dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.android.support:appcompat-v7:26.1.0'
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    compile 'com.jrummyapps:android-shell:1.0.1'
 }
 repositories {
     mavenCentral()
 }
+
+apply plugin: 'kotlin-android-extensions'

@@ -13,6 +13,7 @@ import android.widget.*
 import org.json.JSONObject
 import ru.yourok.flymefirmwarechecker.dialogs.DateTimeDialog
 import ru.yourok.flymefirmwarechecker.dialogs.ItemsDialog
+import ru.yourok.flymefirmwarechecker.remover.RemoverActivity
 import ru.yourok.utils.Params
 import ru.yourok.utils.RequestManager
 import ru.yourok.utils.SystemParams
@@ -319,7 +320,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun onBtnEditor(view: View) {
-        val intent = Intent(this, EditorActivity::class.java)
+        val intent = Intent(this, RemoverActivity::class.java)
         startActivity(intent)
     }
 }
