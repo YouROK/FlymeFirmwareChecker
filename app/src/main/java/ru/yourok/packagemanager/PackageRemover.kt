@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.pm.ApplicationInfo
 import android.content.pm.PackageManager
 import android.graphics.drawable.Drawable
+import android.util.Log
 import android.widget.Toast
 import com.jrummyapps.android.shell.Shell
 import ru.yourok.utils.Utils
@@ -172,6 +173,7 @@ class PackageRemover(val context: Context) {
             "com.meizu.flyme.weather",
             "com.meizu.flyme.wallet",
             "com.meizu.gamecenter.service",
+            "com.meizu.mcare",
             "com.meizu.media.ebook",
             "com.meizu.media.life",
             "com.meizu.media.reader",
@@ -194,6 +196,7 @@ class PackageRemover(val context: Context) {
 
             "com.sankuai.meituan",
             "com.baidu.BaiduMap",
+            "com.baidu.BaiduMap.meizu",
             "ctrip.android.view",
             "com.netease.newsreader.activity",
             "com.qq.reader",

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">FlymeFirmwareChecker</string>
+    <string name="app_name">FUC</string>
 
     <string-array name="translates">
         <item>Orig</item>
@@ -8,10 +8,11 @@
     </string-array>
 
     <string-array name="android_versions">
-        <item>7.1.4</item>
+        <item>8.1.0</item>
+        <item>8.0</item>
         <item>7.1.2</item>
         <item>7.0.1</item>
-        <item>7.0.0</item>
+        <item>7.0</item>
         <item>6.0.1</item>
         <item>6.0</item>
         <item>5.1.1</item>
@@ -70,6 +71,42 @@
 
         <item>M7120-Meizu M6s (A)</item>
         <item>M7125-Meizu M6s (H)</item>
+
+        <item>M8710-Meizu M15 (A)</item>
+        <item>M8715-Meizu 15 Lite (H)</item>
+
+        <item>M8810-Meizu 15 (A)</item>
+        <item>M8815-Meizu 15 (H)</item>
+
+        <item>M8910-Meizu 15 Plus (A)</item>
+        <item>M8915-Meizu 15 Plus (H)</item>
+
+        <item>M8820-Meizu 16th (A)</item>
+        <item>M8825-Meizu 16th (H)</item>
+
+        <item>M8920-Meizu 16th Plus (A)</item>
+
+        <item>M8720-Meizu 16x (A)</item>
+        <item>M8725-Meizu 16x (H)</item>
+
+        <item>M8110-Meizu M6t (A)</item>
+        <item>M8115-Meizu M6t (H)</item>
+
+        <item>M8510-Meizu E3 (A)</item>
+
+        <item>M8105-Meizu M8c (H)</item>
+
+        <item>M8520-Meizu X8 (A)</item>
+        <item>M8525-Meizu X8 (H)</item>
+
+        <item>M8130-V8 lite (A)</item>
+        <item>M8160-V8 (A)</item>
+
+        <item>M8135-M8 (H)</item>
+        <item>M8165-M8 Pro (H)</item>
+
+        <item>M8220-Note 8 (A)</item>
+        <item>M8225-Note 8 (H)</item>
     </string-array>
 
     <string-array name="firmware_type">
